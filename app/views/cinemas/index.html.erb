@@ -1,0 +1,60 @@
+<center> <h1> Jorah Entertainment Company LTD </h1> </center>
+<style>
+
+.card-img-top
+{
+   height:200px;
+   width:250px;
+}
+footer{
+    background: yellow;
+    padding: 25px;
+
+}
+footer p{
+    text-align: center;
+    color: green;
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+</style>
+
+
+<center><h1>Movies Store </h1></center>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  
+<br>   
+  
+<center><b><u><h4><%= link_to "New Cinema", new_cinema_path %></h4></u></b></center>  
+<br>   
+<br>   
+
+<div class="album py-5 bg-light">
+        <div class="container">
+        <div class="row">
+ <% @cinemas.each do |cinema| %> 
+          
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img src="<%= cinema.attachment %>" class="card-img-top"  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text"><b>Title:</b><%= cinema.title %><br><b>category:</b><%= cinema.category %><br><b>Year:</b><%= cinema.year %><br><b>price:</b><%= cinema.price %></p>
+                  <b><u><%= link_to "Download", cinema.attachment_url %></b></u>
+                  <b><u><%= link_to "Delete",  cinema, method: :delete, confirm: "Are you sure you want to delete #{cinema.attachment}?" %>
+                  </b></u>
+                  </div>
+                </div>
+              </div>
+              <% end %> 
+            </div>
+            <br>
+            <br>
+            <footer>
+      
+            <p>&copy; designed by Jorah Entertainment Company LTD - 2019</p>
+    </footer>
+
