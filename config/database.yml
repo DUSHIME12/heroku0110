@@ -25,7 +25,7 @@ development:
   <<: *default
   database: pop_development
   username: postgres
-  password: password
+  password: zaburi
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ test:
   <<: *default
   database: pop_test
   username: postgres
-  password: password
+  password: zaburi
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
